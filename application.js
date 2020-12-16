@@ -209,22 +209,30 @@ class AppHiragana {
         var theWord = document.querySelector(".theWord p");
         var theHiragana = document.querySelector(".theHiragana p");
         var theLatin = document.querySelector(".theLatin p");
+        
+        var id = 0;
 
-        theWord.innerHTML = WordLibrary.word[1];
-        var taille = WordLibrary.word[1].length;
+        theWord.innerHTML = WordLibrary.word[id];
+        var taille = WordLibrary.word[id].length;
 
         var i = 0;
         var syllabe = "";
 
+        // tant que le mot n'a pas fini d'être traduit
+
         while (i < taille)
         {
-            if (syllabe != "")
+
+            // Si la première lettre est une consonne
+            //if (syllabe != "")
+            if (syllabe != "" && WordLibrary.word[id][i] == "a" || WordLibrary.word[id][i] == "i" || WordLibrary.word[id][i] == "o" || WordLibrary.word[id][i] == "e" || WordLibrary.word[id][i] == "u")
             {
-                theLatin.innerHTML = theLatin.innerHTML + " " + syllabe + WordLibrary.word[1][i];
+                theLatin.innerHTML = theLatin.innerHTML + " " + syllabe + WordLibrary.word[id][i];
 
                 for (var a = 0; a < WordLibrary.dataAlphabet.latin.length; a++){
-                    if (syllabe + WordLibrary.word[1][i] == WordLibrary.dataAlphabet.latin[a]){
+                    if (syllabe + WordLibrary.word[id][i] == WordLibrary.dataAlphabet.latin[a]){
                         theHiragana.innerHTML = theHiragana.innerHTML + WordLibrary.dataAlphabet.hiragana[a];
+                        break;
                     }
                 }
                 
@@ -233,12 +241,14 @@ class AppHiragana {
 
             }
 
-            else if (WordLibrary.word[1][i] == "a" || WordLibrary.word[1][i] == "i" || WordLibrary.word[1][i] == "u" || WordLibrary.word[1][i] == "e" || WordLibrary.word[1][i] == "o")
+            // On vérifie si la première lettre est une voyelle
+            // SI c'est vrai alors on l'affiche et on passe à la lettre suivante
+            else if (WordLibrary.word[id][i] == "a" || WordLibrary.word[id][i] == "i" || WordLibrary.word[id][i] == "u" || WordLibrary.word[id][i] == "e" || WordLibrary.word[id][i] == "o")
             {
-                theLatin.innerHTML = theLatin.innerHTML + " " + WordLibrary.word[1][i];
+                theLatin.innerHTML = theLatin.innerHTML + " " + WordLibrary.word[id][i];
 
-                for (var a = 0; a < WordLibrary.dataAlphabet.latin.length; a++){
-                    if (WordLibrary.word[1][i] == WordLibrary.dataAlphabet.latin[a]){
+                for (var a = id; a < WordLibrary.dataAlphabet.latin.length; a++){
+                    if (WordLibrary.word[id][i] == WordLibrary.dataAlphabet.latin[a]){
                         theHiragana.innerHTML = theHiragana.innerHTML + WordLibrary.dataAlphabet.hiragana[a];
                     }
                 }
@@ -247,9 +257,10 @@ class AppHiragana {
 
             }
 
-            else if (WordLibrary.word[1][i] == "k" || WordLibrary.word[1][i] == "s" || WordLibrary.word[1][i] == "t" || WordLibrary.word[1][i] == "n" || WordLibrary.word[1][i] == "h" || WordLibrary.word[1][i] == "m" || WordLibrary.word[1][i] == "y" || WordLibrary.word[1][i] == "r" || WordLibrary.word[1][i] == "w")
+            // Si ce n'est pas une voyelle et on vérifie si c'est un pur son
+            else if (WordLibrary.word[id][i] == "k" || WordLibrary.word[id][i] == "s" || WordLibrary.word[id][i] == "t" || WordLibrary.word[id][i] == "n" || WordLibrary.word[id][i] == "h" || WordLibrary.word[id][i] == "m" || WordLibrary.word[id][i] == "y" || WordLibrary.word[id][i] == "r" || WordLibrary.word[id][i] == "w")
             {
-                syllabe = WordLibrary.word[1][i];
+                syllabe = syllabe + WordLibrary.word[id][i];
                 i++;
 
             }
@@ -269,4 +280,4 @@ AppHira.getHiragana();
 // faire en sorte que chaque lettre en hiragana il y a sa traduction latin en dessous
 //Chaque lettre hiragana doit répresenter un chiffre, ce qui évite de tout traduire à chaque fois dans le data.js . Exemple : あ = 1 = a 
 //mettre un timer qui au bout de 5 secondes affiche un indice et au bout de 10 secondes, la solution
-
+//Souligner l'hiragana après la solution ou après la validation

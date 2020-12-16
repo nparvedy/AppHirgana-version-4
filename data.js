@@ -116,7 +116,7 @@ var hiraganaVerso = [ // 0 = hiragana, 1 = alphabet latin, 2 = touche du clavier
         ]
     ],  
     ["ふ","fu",50,1,[
-            ["-ne","fune","-ね", "ふね"]
+            ["-ne","fune","-ね", "ふね", "Bateau"]
         ]
     ],  
     ["へ","he",187, 11,[
@@ -140,7 +140,7 @@ var hiraganaVerso = [ // 0 = hiragana, 1 = alphabet latin, 2 = touche du clavier
         ]
     ],  
     ["め","me",223,45,[
-            ["go-n nasai","gomen nasai","ご-ん なさい", "ごめん なさい"]
+            ["go-n nasai","gomen nasai","ご-ん なさい", "ごめん なさい", "Désolé"]
         ]
     ], 
     ["や","ya",55, 6,[
@@ -204,7 +204,6 @@ var wordLibrary = [
 
 ];
 
-console.log(wordLibrary);
 
 // 0 = hiragana, 1 = alphabet latin, 2 = touche du clavier, 3 = ordre de la touche du clavier
 
@@ -259,12 +258,65 @@ var hiraganaArray = [
 
 var WordLibrary = {
     dataAlphabet : {
-        hiragana : ["ら", "か", "く", "な", "い"], 
-        latin : ["ra", "ka", "ku", "na", "i"]
+        hiragana : ["あ", "い", "お", "う", "え","か", "き", "こ", "く", "け","さ", "し", "そ", "す", "せ","た", "ち", "と", "つ", "て","な", "に", "の", "ぬ", "ね","は", "ひ", "ほ", "へ", "ふ","ま", "み", "も", "む", "め","や", "よ", "ゆ", "ら","り", "ろ", "るru", "れ", "わ", "を", "ん"], 
+        latin : ["a", "i", "o", "u", "e", "ka", "ki", "ko", "ku","ke", "sa", "shi", "so", "su","se", "ta", "chi", "to", "tsu","te", "na", "ni", "no", "nu","ne", "ha", "hi", "ho", "he","fu", "ma", "mi", "mo", "mu","me", "ya", "yo", "yu", "ra","ri", "ro", "re", "wa","wo", "n"]
     }, 
 
-    word : ["karakunai", "kairaikukanai"],
+    word : ["yoroshiku", "kairaikukanai", "kaiiraiku"],
     
+    dataHiragana : {
+        pureSounds : {
+            vowel : ["あ", "い", "う", "え", "お"], 
+            kHira : ["か", "き", "く", "け", "こ"], 
+            sHira : ["さ", "し", "す", "せ", "そ"],
+            tHira : ["た", "ち", "つ", "て", "と"],
+            nHira : ["な", "に", "ぬ", "ね", "の"],
+            hHira : ["は", "ひ", "ふ", "へ", "ほ"],
+            mHira : ["ま", "み", "む", "め", "も"],
+            yHira : ["や", "ゆ", "よ"],
+            rHira : ["ら", "り", "る", "れ", "ろ"],
+            wHira : ["わ", "を"],
+            nnHira : ["ん"]
+        
+        },
+
+        impurSounds : {
+            gHira : ["が", "ぎ", "ぐ", "げ", "ご"], 
+            zHira : ["ざ", "じ", "ず", "ぜ", "ぞ"], 
+            dHira : ["だ", "じ", "づ", "で", "ど"],
+            bHira : ["ば", "び", "ぶ", "べ", "ぼ"],
+            pHira : ["ぱ", "ぴ", "ぷ", "ぺ", "ぽ"],
+        }
+
+    },
+
+    dataLatin : {
+        pureSounds : {
+            vowel : ["a", "i", "u", "e", "o"], 
+            kHira : ["k ", "ki", "ku", "ke", "ko"], 
+            sHira : ["sa", "shi", "su", "se", "so"],
+            tHira : ["ta", "chi", "tsu", "te", "to"],
+            nHira : ["na", "ni", "nu", "ne", "no"],
+            hHira : ["ha", "hi", "fu", "he", "ho"],
+            mHira : ["ma", "mi", "mu", "me", "mo"],
+            yHira : ["ya", "yu", "yo"],
+            rHira : ["ra", "ri", "ru", "re", "ro"],
+            wHira : ["wa", "wo"],
+            nnHira : ["n"]
+        
+        },
+
+        impurSounds : {
+            gHira : ["ga", "gi", "gu", "ge", "go"], 
+            zHira : ["za", "ji", "zu", "ze", "zo"], 
+            dHira : ["da", "dji", "dzu", "de", "do"],
+            bHira : ["ba", "bi", "bu", "be", "bo"],
+            pHira : ["pa", "pi", "pu", "pe", "po"],
+        }
+
+    }
 }
 
-console.log(WordLibrary);
+
+//problème traduction fr, niveau de difficulté, 
+//Les mots ne sont pas choisi au hasard mais par niveau de difficulté

@@ -281,6 +281,13 @@ class AppHiragana {
                 syllabe = syllabe + WordLibrary.word[id][i];
                 i++;
             }
+
+            // Si ce n'est pas une voyelle et on vérifie si c'est un impur son
+            else if (WordLibrary.word[id][i] == "g" || WordLibrary.word[id][i] == "z" || WordLibrary.word[id][i] == "j" || WordLibrary.word[id][i] == "d" || WordLibrary.word[id][i] == "b" || WordLibrary.word[id][i] == "p")
+            {
+                syllabe = syllabe + WordLibrary.word[id][i];
+                i++;
+            }
         }
         
     }
@@ -298,3 +305,5 @@ AppHira.getHiragana();
 //Chaque lettre hiragana doit répresenter un chiffre, ce qui évite de tout traduire à chaque fois dans le data.js . Exemple : あ = 1 = a 
 //mettre un timer qui au bout de 5 secondes affiche un indice et au bout de 10 secondes, la solution
 //Souligner l'hiragana après la solution ou après la validation
+
+//Vu qu'on sait quand c'est un son pur et impur alors il n y a pas besoin de faire toute l'alphabet pour vérifier quelle hiragana on parle, on peut donc réduire la durée.

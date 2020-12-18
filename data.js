@@ -258,11 +258,11 @@ var hiraganaArray = [
 
 var WordLibrary = {
     dataAlphabet : {
-        hiragana : ["あ", "い", "お", "う", "え","か", "き", "こ", "く", "け","さ", "し", "そ", "す", "せ","た", "ち", "と", "つ", "て","な", "に", "の", "ぬ", "ね","は", "ひ", "ほ", "へ", "ふ","ま", "み", "も", "む", "め","や", "よ", "ゆ", "ら","り", "ろ", "る", "れ", "わ", "を", "ん"], 
-        latin : ["a", "i", "o", "u", "e", "ka", "ki", "ko", "ku","ke", "sa", "shi", "so", "su","se", "ta", "chi", "to", "tsu","te", "na", "ni", "no", "nu","ne", "ha", "hi", "ho", "he","fu", "ma", "mi", "mo", "mu","me", "ya", "yo", "yu", "ra","ri", "ro", "ru","re", "wa","wo", "n"]
+        hiragana : ["あ", "い", "お", "う", "え","か", "き", "こ", "く", "け","さ", "し", "そ", "す", "せ","た", "ち", "と", "つ", "て","な", "に", "の", "ぬ", "ね","は", "ひ", "ほ", "へ", "ふ","ま", "み", "も", "む", "め","や", "よ", "ゆ", "ら","り", "ろ", "る", "れ", "わ", "を", "ん", "が", "ぎ", "ぐ", "げ", "ご", "ざ", "じ", "ず", "ぜ", "ぞ", "だ", "ぢ", "づ", "で", "ど", "ば", "び", "ぶ", "べ", "ぼ", "ぱ", "ぴ", "ぷ", "ぺ", "ぽ"], 
+        latin : ["a", "i", "o", "u", "e", "ka", "ki", "ko", "ku","ke", "sa", "shi", "so", "su","se", "ta", "chi", "to", "tsu","te", "na", "ni", "no", "nu","ne", "ha", "hi", "ho", "he","fu", "ma", "mi", "mo", "mu","me", "ya", "yo", "yu", "ra","ri", "ro", "ru","re", "wa","wo", "n", "ga", "gi", "gu", "ge", "go", "za", "ji", "zu", "ze", "zo", "da", "dji", "dzu", "de", "do", "ba", "bi", "bu", "be", "bo", "pa", "pi", "pu", "pe", "po"]
     }, 
 
-    word : ["yoroshikunanka", "nata no onamae wa nansuka", "kaiiraiku"],
+    word : ["yoroshikunanka", "nata no onamae wa nandesuka", "kaiiraiku"],
     
     dataHiragana : {
         pureSounds : {
@@ -283,7 +283,7 @@ var WordLibrary = {
         impurSounds : {
             gHira : ["が", "ぎ", "ぐ", "げ", "ご"], 
             zHira : ["ざ", "じ", "ず", "ぜ", "ぞ"], 
-            dHira : ["だ", "じ", "づ", "で", "ど"],
+            dHira : ["だ", "ぢ", "づ", "で", "ど"],
             bHira : ["ば", "び", "ぶ", "べ", "ぼ"],
             pHira : ["ぱ", "ぴ", "ぷ", "ぺ", "ぽ"],
         }

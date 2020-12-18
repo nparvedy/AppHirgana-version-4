@@ -258,11 +258,11 @@ var hiraganaArray = [
 
 var WordLibrary = {
     dataAlphabet : {
-        hiragana : ["あ", "い", "お", "う", "え","か", "き", "こ", "く", "け","さ", "し", "そ", "す", "せ","た", "ち", "と", "つ", "て","な", "に", "の", "ぬ", "ね","は", "ひ", "ほ", "へ", "ふ","ま", "み", "も", "む", "め","や", "よ", "ゆ", "ら","り", "ろ", "るru", "れ", "わ", "を", "ん"], 
-        latin : ["a", "i", "o", "u", "e", "ka", "ki", "ko", "ku","ke", "sa", "shi", "so", "su","se", "ta", "chi", "to", "tsu","te", "na", "ni", "no", "nu","ne", "ha", "hi", "ho", "he","fu", "ma", "mi", "mo", "mu","me", "ya", "yo", "yu", "ra","ri", "ro", "re", "wa","wo", "n"]
+        hiragana : ["あ", "い", "お", "う", "え","か", "き", "こ", "く", "け","さ", "し", "そ", "す", "せ","た", "ち", "と", "つ", "て","な", "に", "の", "ぬ", "ね","は", "ひ", "ほ", "へ", "ふ","ま", "み", "も", "む", "め","や", "よ", "ゆ", "ら","り", "ろ", "る", "れ", "わ", "を", "ん"], 
+        latin : ["a", "i", "o", "u", "e", "ka", "ki", "ko", "ku","ke", "sa", "shi", "so", "su","se", "ta", "chi", "to", "tsu","te", "na", "ni", "no", "nu","ne", "ha", "hi", "ho", "he","fu", "ma", "mi", "mo", "mu","me", "ya", "yo", "yu", "ra","ri", "ro", "ru","re", "wa","wo", "n"]
     }, 
 
-    word : ["yoroshiku", "kairaikukanai", "kaiiraiku"],
+    word : ["yoroshikunanka", "nata no onamae wa nansuka", "kaiiraiku"],
     
     dataHiragana : {
         pureSounds : {

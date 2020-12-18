@@ -210,7 +210,7 @@ class AppHiragana {
         var theHiragana = document.querySelector(".theHiragana p");
         var theLatin = document.querySelector(".theLatin p");
         
-        var id = 0;
+        var id = 1;
 
         theWord.innerHTML = WordLibrary.word[id];
         var taille = WordLibrary.word[id].length;
@@ -222,7 +222,6 @@ class AppHiragana {
 
         while (i < taille)
         {
-
             // Si la première lettre est une consonne
             //if (syllabe != "")
             if (syllabe != "" && WordLibrary.word[id][i] == "a" || WordLibrary.word[id][i] == "i" || WordLibrary.word[id][i] == "o" || WordLibrary.word[id][i] == "e" || WordLibrary.word[id][i] == "u")
@@ -241,6 +240,12 @@ class AppHiragana {
 
             }
 
+            //Si la prochaine lettre est un espace alors on l'a rajoute (seulement latin)
+            else if (WordLibrary.word[id][i] == " "){
+                theLatin.innerHTML = theLatin.innerHTML +  WordLibrary.word[id][i];
+                i++;
+            }
+
             // On vérifie si la première lettre est une voyelle
             // SI c'est vrai alors on l'affiche et on passe à la lettre suivante
             else if (WordLibrary.word[id][i] == "a" || WordLibrary.word[id][i] == "i" || WordLibrary.word[id][i] == "u" || WordLibrary.word[id][i] == "e" || WordLibrary.word[id][i] == "o")
@@ -257,12 +262,24 @@ class AppHiragana {
 
             }
 
+            // Si la lettre n n'est pas suivi d'une voyelle alors on l'a rajoute 
+            else if (syllabe == "n" && WordLibrary.word[id][i] != "a" || syllabe == "n" && WordLibrary.word[id][i] != "o" || syllabe == "n" && WordLibrary.word[id][i] != "u" || syllabe == "n" && WordLibrary.word[id][i] != "e" || syllabe == "n" && WordLibrary.word[id][i] != "i"){
+                theLatin.innerHTML = theLatin.innerHTML + " " + syllabe;
+
+                for (var a = 0; a < WordLibrary.dataAlphabet.latin.length; a++){
+                    if (syllabe == WordLibrary.dataAlphabet.latin[a]){
+                        theHiragana.innerHTML = theHiragana.innerHTML + WordLibrary.dataAlphabet.hiragana[a];
+                        break;
+                    }
+                }
+                syllabe = "";  
+            }
+
             // Si ce n'est pas une voyelle et on vérifie si c'est un pur son
             else if (WordLibrary.word[id][i] == "k" || WordLibrary.word[id][i] == "s" || WordLibrary.word[id][i] == "t" || WordLibrary.word[id][i] == "n" || WordLibrary.word[id][i] == "h" || WordLibrary.word[id][i] == "m" || WordLibrary.word[id][i] == "y" || WordLibrary.word[id][i] == "r" || WordLibrary.word[id][i] == "w")
             {
                 syllabe = syllabe + WordLibrary.word[id][i];
                 i++;
-
             }
         }
         

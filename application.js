@@ -41,7 +41,7 @@ class AppHiragana {
             + " Sauf que tu as vu la solution donc tu ne gagnes aucun point."
             + "<p>Exemple : " 
             + " [" 
-            + hiraganaVerso[this.valeur][4][0][3] 
+            + this.getHiragana(hiraganaVerso[this.valeur][4][0][1])
             + "]" 
             + " "
             + hiraganaVerso[this.valeur][4][0][1] 
@@ -55,7 +55,7 @@ class AppHiragana {
             + "["+ hiraganaVerso[this.valeur][this.change] + "]." 
             + "<p>Exemple : " 
             + " [" 
-            + hiraganaVerso[this.valeur][4][0][3] 
+            + this.getHiragana(hiraganaVerso[this.valeur][4][0][1])
             + "]" 
             + " "
             + hiraganaVerso[this.valeur][4][0][1] 
@@ -69,7 +69,7 @@ class AppHiragana {
             + "["+ hiraganaVerso[this.valeur][this.change] + "]." 
             + "<p>Exemple : " 
             + " [" 
-            + hiraganaVerso[this.valeur][4][0][3] 
+            + this.getHiragana(hiraganaVerso[this.valeur][4][0][1])
             + "]" 
             + " "
             + hiraganaVerso[this.valeur][4][0][1] 
@@ -205,31 +205,37 @@ class AppHiragana {
         this.buttonSoluceClicked = false;
     }
 
-    getHiragana(){
+    getHiragana(value){
         var theWord = document.querySelector(".theWord p");
         var theHiragana = document.querySelector(".theHiragana p");
         var theLatin = document.querySelector(".theLatin p");
         
         var id = 1;
-
-        theWord.innerHTML = WordLibrary.word[id];
-        var taille = WordLibrary.word[id].length;
+        value = value.toLowerCase();
+        theWord.innerHTML = value;
+        console.log(theLatin);
+        var taille = value.length;
 
         var i = 0;
         var syllabe = "";
 
         // tant que le mot n'a pas fini d'être traduit
 
+        theHiragana.innerHTML = "";
+        theLatin.innerHTML = "";
+
         while (i < taille)
         {
+            //console.log(syllabe);
+            //console.log(value[i]);
             // Si la première lettre est une consonne
             //if (syllabe != "")
-            if (syllabe != "" && WordLibrary.word[id][i] == "a" || WordLibrary.word[id][i] == "i" || WordLibrary.word[id][i] == "o" || WordLibrary.word[id][i] == "e" || WordLibrary.word[id][i] == "u")
+            if (syllabe != "" && value[i] == "a" || value[i] == "i" || value[i] == "o" || value[i] == "e" || value[i] == "u" || value[i] == "ō")
             {
-                theLatin.innerHTML = theLatin.innerHTML + " " + syllabe + WordLibrary.word[id][i];
+                theLatin.innerHTML = theLatin.innerHTML + " " + syllabe + value[i];
 
                 for (var a = 0; a < WordLibrary.dataAlphabet.latin.length; a++){
-                    if (syllabe + WordLibrary.word[id][i] == WordLibrary.dataAlphabet.latin[a]){
+                    if (syllabe + value[i] == WordLibrary.dataAlphabet.latin[a]){
                         theHiragana.innerHTML = theHiragana.innerHTML + WordLibrary.dataAlphabet.hiragana[a];
                         break;
                     }
@@ -241,19 +247,19 @@ class AppHiragana {
             }
 
             //Si la prochaine lettre est un espace alors on l'a rajoute (seulement latin)
-            else if (WordLibrary.word[id][i] == " "){
-                theLatin.innerHTML = theLatin.innerHTML +  WordLibrary.word[id][i];
+            else if (value[i] == " " || value[i] == "." || value[i] == ","){
+                theLatin.innerHTML = theLatin.innerHTML +  value[i];
                 i++;
             }
 
             // On vérifie si la première lettre est une voyelle
             // SI c'est vrai alors on l'affiche et on passe à la lettre suivante
-            else if (WordLibrary.word[id][i] == "a" || WordLibrary.word[id][i] == "i" || WordLibrary.word[id][i] == "u" || WordLibrary.word[id][i] == "e" || WordLibrary.word[id][i] == "o")
+            else if (value[i] == "a" || value[i] == "i" || value[i] == "u" || value[i] == "e" || value[i] == "o")
             {
-                theLatin.innerHTML = theLatin.innerHTML + " " + WordLibrary.word[id][i];
+                theLatin.innerHTML = theLatin.innerHTML + " " + value[i];
 
-                for (var a = id; a < WordLibrary.dataAlphabet.latin.length; a++){
-                    if (WordLibrary.word[id][i] == WordLibrary.dataAlphabet.latin[a]){
+                for (var a = 0; a < WordLibrary.dataAlphabet.latin.length; a++){
+                    if (value[i] == WordLibrary.dataAlphabet.latin[a]){
                         theHiragana.innerHTML = theHiragana.innerHTML + WordLibrary.dataAlphabet.hiragana[a];
                     }
                 }
@@ -263,7 +269,7 @@ class AppHiragana {
             }
 
             // Si la lettre n n'est pas suivi d'une voyelle alors on l'a rajoute 
-            else if (syllabe == "n" && WordLibrary.word[id][i] != "a" || syllabe == "n" && WordLibrary.word[id][i] != "o" || syllabe == "n" && WordLibrary.word[id][i] != "u" || syllabe == "n" && WordLibrary.word[id][i] != "e" || syllabe == "n" && WordLibrary.word[id][i] != "i"){
+            else if (syllabe == "n" && value[i] != "a" || syllabe == "n" && value[i] != "o" || syllabe == "n" && value[i] != "u" || syllabe == "n" && value[i] != "e" || syllabe == "n" && value[i] != "i"){
                 theLatin.innerHTML = theLatin.innerHTML + " " + syllabe;
 
                 for (var a = 0; a < WordLibrary.dataAlphabet.latin.length; a++){
@@ -276,26 +282,26 @@ class AppHiragana {
             }
 
             // Si ce n'est pas une voyelle et on vérifie si c'est un pur son
-            else if (WordLibrary.word[id][i] == "k" || WordLibrary.word[id][i] == "s" || WordLibrary.word[id][i] == "t" || WordLibrary.word[id][i] == "n" || WordLibrary.word[id][i] == "h" || WordLibrary.word[id][i] == "m" || WordLibrary.word[id][i] == "y" || WordLibrary.word[id][i] == "r" || WordLibrary.word[id][i] == "w")
+            else if (value[i] == "k" || value[i] == "s" || value[i] == "t" || value[i] == "n" || value[i] == "h" || value[i] == "m" || value[i] == "y" || value[i] == "r" || value[i] == "w" || value[i] == "c" || value[i] == "f")
             {
-                syllabe = syllabe + WordLibrary.word[id][i];
+                syllabe = syllabe + value[i];
                 i++;
             }
 
             // Si ce n'est pas une voyelle et on vérifie si c'est un impur son
-            else if (WordLibrary.word[id][i] == "g" || WordLibrary.word[id][i] == "z" || WordLibrary.word[id][i] == "j" || WordLibrary.word[id][i] == "d" || WordLibrary.word[id][i] == "b" || WordLibrary.word[id][i] == "p")
+            else if (value[i] == "g" || value[i] == "z" || value[i] == "j" || value[i] == "d" || value[i] == "b" || value[i] == "p")
             {
-                syllabe = syllabe + WordLibrary.word[id][i];
+                syllabe = syllabe + value[i];
                 i++;
             }
         }
-        
+        return theHiragana.innerHTML;
     }
 }
 
 
 var AppHira = new AppHiragana();
-AppHira.getHiragana();
+//AppHira.getHiragana();
 
 //Risque que l'indice ne reset pas quand on reverse
 // finir le tableau de data.js

@@ -40,7 +40,7 @@ var hiraganaVerso = [ // 0 = hiragana, 1 = alphabet latin, 2 = touche du clavier
         ]
     ],  
     ["け","ke",192, 33,[
-            ["iie, -kko desu.","Iie, kekko desu.","いいえ -つこうです", "いいえ けつこうです", "Non merci"]
+            ["iie, -kko desu.","iie, kekko desu.","いいえ -つこうです", "いいえ けつこうです", "Non merci"]
         ]
     ], 
     ["さ","sa",88, 37,[
@@ -168,7 +168,7 @@ var hiraganaVerso = [ // 0 = hiragana, 1 = alphabet latin, 2 = touche du clavier
         ]
     ],  
     ["る","ru",191, 44,[
-            ["ku-ma","ku-ma","く-ま", "くるま", "Voiture"]
+            ["ku-ma","kuruma","く-ま", "くるま", "Voiture"]
         ]
     ],  
     ["れ","re",77,32,[
@@ -258,11 +258,11 @@ var hiraganaArray = [
 
 var WordLibrary = {
     dataAlphabet : {
-        hiragana : ["あ", "い", "お", "う", "え","か", "き", "こ", "く", "け","さ", "し", "そ", "す", "せ","た", "ち", "と", "つ", "て","な", "に", "の", "ぬ", "ね","は", "ひ", "ほ", "へ", "ふ","ま", "み", "も", "む", "め","や", "よ", "ゆ", "ら","り", "ろ", "る", "れ", "わ", "を", "ん", "が", "ぎ", "ぐ", "げ", "ご", "ざ", "じ", "ず", "ぜ", "ぞ", "だ", "ぢ", "づ", "で", "ど", "ば", "び", "ぶ", "べ", "ぼ", "ぱ", "ぴ", "ぷ", "ぺ", "ぽ"], 
-        latin : ["a", "i", "o", "u", "e", "ka", "ki", "ko", "ku","ke", "sa", "shi", "so", "su","se", "ta", "chi", "to", "tsu","te", "na", "ni", "no", "nu","ne", "ha", "hi", "ho", "he","fu", "ma", "mi", "mo", "mu","me", "ya", "yo", "yu", "ra","ri", "ro", "ru","re", "wa","wo", "n", "ga", "gi", "gu", "ge", "go", "za", "ji", "zu", "ze", "zo", "da", "dji", "dzu", "de", "do", "ba", "bi", "bu", "be", "bo", "pa", "pi", "pu", "pe", "po"]
+        hiragana : ["あ", "い", "お", "う", "え","か", "き", "こ", "く", "け","さ", "し", "そ", "す", "せ","た", "ち", "と", "つ", "て","な", "に", "の", "ぬ", "ね","は", "ひ", "ほ", "へ", "ふ","ま", "み", "も", "む", "め","や", "よ", "ゆ", "ら","り", "ろ", "る", "れ", "わ", "を", "ん", "が", "ぎ", "ぐ", "げ", "ご", "ざ", "じ", "ず", "ぜ", "ぞ", "だ", "ぢ", "づ", "で", "ど", "ば", "び", "ぶ", "べ", "ぼ", "ぱ", "ぴ", "ぷ", "ぺ", "ぽ", "ごう"], 
+        latin : ["a", "i", "o", "u", "e", "ka", "ki", "ko", "ku","ke", "sa", "shi", "so", "su","se", "ta", "chi", "to", "tsu","te", "na", "ni", "no", "nu","ne", "ha", "hi", "ho", "he","fu", "ma", "mi", "mo", "mu","me", "ya", "yo", "yu", "ra","ri", "ro", "ru","re", "wa","wo", "n", "ga", "gi", "gu", "ge", "go", "za", "ji", "zu", "ze", "zo", "da", "dji", "dzu", "de", "do", "ba", "bi", "bu", "be", "bo", "pa", "pi", "pu", "pe", "po", "gō"]
     }, 
 
-    word : ["yoroshikunanka", "nata no onamae wa nandesuka", "kaiiraiku"],
+    word : ["yoroshikunanka", "anata wa kon ya no tame no heya ga arimasu ka", "kaiiraiku"],
     
     dataHiragana : {
         pureSounds : {
